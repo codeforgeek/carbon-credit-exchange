@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Dashboard
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <div class="col-6">
+          <p class="logo pt-3">Decentralized Email</p>
+          <span class="icon" onclick="showMobileView()">
+            <i class="fa fa-bars"></i>
+          </span>
+        </div>
+        <div class="col-6 text-align-right pt-3">
+          <a href="/logout"> Logout</a>
+        </div>
+      </div>
+
+      <div class="row container-box">
+        <div class="col-2 left-container overlay" id="abc">
+          <!-- Left Container -->
+          <br />
+          <li id="Close">Close</li>
+          <li id="Compose">Compose</li>
+          <li id="Inbox">Inbox</li>
+          <li id="Request">Request</li>
+          <li id="Contacts">My Contacts</li>
+          <li id="ContactRequests">All Requests</li>
+        </div>
+
+        <div class="col-10 right-container" id="dataContainer">
+          <!-- Right Container -->
+          <br />
+          <ul id="emails"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- for jquery validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- external sheets -->
+    <script src="/js/home.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/home.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
+  </body>
+</html>

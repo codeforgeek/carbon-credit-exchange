@@ -1,0 +1,74 @@
+body {
+    font-family: sans-serif;
+    background-image: linear-gradient(-90deg, #80F4ED, #4083F4) !important;
+}
+
+.jumbotron {
+    padding: 2rem;
+    margin-bottom: 0px;
+}
+
+.header-btn {
+    border: none !important;
+    color: #BBE2F9 !important;
+    display: inline-block;
+    width: 100px;
+}
+
+.header-btn:hover {
+    color: white !important;
+    text-shadow: 0px 1px whitesmoke;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white !important;
+    text-shadow: 0px 1px whitesmoke;
+    font-weight: bolder;
+}
+
+.jumbotron-container {
+    height: 80vh;
+    background-image: linear-gradient(-90deg, #42AEE7, #4083F4);
+}
+
+.logo {
+    color: white;
+    font-weight: 400;
+    letter-spacing: .4em;
+    font-size: 1.3em;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.color-white {
+    color: white;
+}
+
+#learn-more {
+    height: 80vh;
+    background-image: linear-gradient(-90deg, #80F4ED, white);
+}
+
+@media only screen and (max-width: 823px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
+    .jumbotron-container, #learn-more {
+        height: 100vh;
+    }
+}

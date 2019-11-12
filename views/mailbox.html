@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title lang="en">Decentralized Mail</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link href="css/mailbox.css" rel="stylesheet">
+  <link href="css/theme/theme-default.css" id="theme_css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+  <header id="small-screen-header" class="lg-none md-none row xl-none" style="
+  height: 50px;
+">
+    <a class="align-items-center col d-flex justify-content-center sidebar-brand text-lg" id="brand2" href="/" style="
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+">
+
+
+      <div lang="en" class="mx-3 sidebar-brand-text">Decentralized Mail</div>
+    </a>
+  </header>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" id="brand" href="/">
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+
+        <div lang="en" class="sidebar-brand-text mx-3">Decentralized Mail</div>
+      </a>
+
+      <!-- Nav Item - Dashboard -->
+
+      <!-- <li class="nav-item" id="sidebar-dashboard">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li> -->
+
+      <li class="nav-item" id="sidebar-compose">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-at"></i>
+          <span lang="en">Compose</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div lang="en" class="sidebar-heading">
+        Mailbox
+      </div>
+
+      <li class="nav-item" id="sidebar-inbox">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-inbox"></i>
+          <span lang="en">Inbox</span></a>
+      </li>
+
+      <li class="nav-item" id="sidebar-sent">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-paper-plane"></i>
+          <span lang="en">Sent</span></a>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-envelope-open-text"></i>
+          <span>Outbox</span></a>
+      </li> -->
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-mail-bulk fa-envelope-open-text"></i>
+          <span>Drafts</span></a>
+      </li> -->
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div lang="en" class="sidebar-heading">
+        Contacts
+      </div>
+
+
+      <li class="nav-item" id="sidebar-contacts">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-address-book"></i>
+          <span lang="en">My Contacts</span></a>
+      </li>
+
+      <li class="nav-item" id="sidebar-request">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-user-plus"></i>
+          <span lang="en">Request</span></a>
+      </li>
+
+      <li class="nav-item" id="sidebar-all-request">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-users"></i>
+          <span lang="en">All Requests</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav id="top-header" class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn d-md-none header-icon rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- <div class="sidebar-brand-text mx-3">Decentralized Mail</div> -->
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input lang="en" type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle header-icon" href="#" id="searchDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+            <!-- <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle header-icon" href="#" id="alertsDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw fa-lg"></i>
+                <span class="badge badge-danger badge-counter">99+</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">Meeting Invite #72638</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    Meeting Invite #128546
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Meeting Invite #72698
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li> -->
+
+
+
+            <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle header-icon" href="#" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span id="current-user" class="mr-2 d-none d-lg-inline text-gray-600 small">amit@graminno.in</span>
+                <i class="fas fa-user-circle fa-2x"></i>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <!-- <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a> -->
+                <a lang="en" class="dropdown-item" href="#" data-toggle="modal" data-target="#themeModal">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Appearance
+                </a>
+                <a lang="en" class="dropdown-item" href="#" data-toggle="modal" data-target="#languageModal">
+                  <i class="fas fa-globe-africa fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Language
+                </a>
+                <!-- <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a> -->
+                <div class="dropdown-divider"></div>
+                <a lang="en" class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <div class="custom-alert-container">
+          <div lang="en" id="email-sent-success-alert"
+            class="alert alert-success alert-dismissible fade show custom-alert" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Email Sent
+          </div>
+          <div lang="en" id="email-sent-failed-alert"
+            class="alert alert-danger alert-dismissible fade show custom-alert" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Could not send email!
+          </div>
+          <div lang="en" id="request-accepted-alert"
+            class="alert alert-success alert-dismissible fade show custom-alert" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Request Accepted
+          </div>
+          <div lang="en" id="request-rejected-alert"
+            class="alert alert-success alert-dismissible fade show custom-alert" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Request Rejected
+          </div>
+        </div>
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="align-items-center justify-content-between mb-4">
+            <!-- <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> -->
+            <div style="width: 100%">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" id="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <i class="fas fa-home fa-sm"></i>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <!-- <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <i class="fas fa-home fa-2x text-gray-300"></i>
+                </li>
+              </ol>
+            </nav> -->
+            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+          </div>
+
+          <!-- Content Row -->
+          <div class="row no-gutters mb-4" id="current-pane">
+            <!-- all content here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span><span lang="en">Copyright</span> &copy; <span lang="en">Accion Labs</span>, 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 lang="en" class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div lang="en" class="modal-body">Click on "Logout" to end your current session.</div>
+        <div class="modal-footer">
+          <button lang="en" class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a lang="en" class="btn btn-primary" href="/login">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Modal-->
+  <div class="modal fade" id="themeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 lang="en" class="modal-title" id="exampleModalLabel">Select a theme</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="card-body">
+              <div lang="en" onclick="changeTheme('default')" class="p-4 selector-default">Default</div>
+              <div lang="en" onclick="changeTheme('dark-blue')" class="p-4 selector-dark-blue">Dark Blue</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Modal-->
+  <div class="modal fade" id="languageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 lang="en" class="modal-title" id="exampleModalLabel">Select a language</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="card-body">
+              <div onclick="changeLanguage('en')" class="p-4 lang-option">English</div>
+              <div onclick="changeLanguage('mr')" class="p-4 lang-option">मराठी</div>
+              <div onclick="changeLanguage('hi')" class="p-4 lang-option">हिंदी</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/popper.min.js"></script>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-lang/js.cookie.js" charset="utf-8" type="text/javascript"></script>
+  <script src="vendor/jquery-lang/jquery-lang.js" charset="utf-8" type="text/javascript"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/dupindex.js"></script>
+  <script src="js/sb-admin-2.min.js"></script>
+
+
+</body>
+
+</html>

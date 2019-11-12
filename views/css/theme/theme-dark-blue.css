@@ -1,0 +1,55 @@
+#brand {
+  background-color: #0c3448 !important;
+}
+
+#current-pane ul.mail-list {
+  background: radial-gradient(ellipse at center, #245d77 0%, #1d4b60 100%);
+}
+
+#small-screen-header {
+  background-color: #114055;
+}
+
+#accordionSidebar {
+  background-size: cover;
+  background-color: #4e73df;
+  background-image: linear-gradient(180deg, #245d77 10%, #000000 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(10%, #245d77),
+    to(#000)
+  );
+}
+
+.topbar .dropdown-list .dropdown-header {
+  background-color: #648b9c !important;
+  border: 1px solid #648b9c !important;
+}
+
+#top-header {
+  background-color: #245d77 !important;
+}
+
+#breadcrumb {
+  background-color: #e6e6e6;
+}
+
+.breadcrumb-item {
+  color: #245d77 !important;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+}
+
+footer.sticky-footer {
+  background-color: #356b84ab !important;
+  color: #fff;
+}
+
+.header-icon,
+.header-icon span {
+  color: #fff !important;
+}

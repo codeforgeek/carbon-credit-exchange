@@ -1,0 +1,134 @@
+#current-pane ul.mail-list {
+  background: radial-gradient(ellipse at center, #696969 0%, #3c3c3c 100%);
+  color: #fff;
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+#current-pane ul.mail-list li:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.38);
+}
+
+#current-pane ul.mail-list li:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.custom-alert-container {
+  position: absolute;
+  right: 1%;
+}
+
+#mail-view {
+  background-color: white;
+  color: black;
+  padding-top: 1.5rem;
+  border-radius: 0.35rem;
+}
+
+.mail-view-to,
+.mail-view-time {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.mail-body {
+  white-space: pre-wrap;
+  font-family: inherit;
+  padding: 2%;
+}
+
+#attachments button.btn-sm {
+  padding: 0;
+}
+
+.mail-action-buttons {
+  color: #9c9c9c;
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  background-color: #7373730a;
+}
+
+@media only screen and (min-width: 0) and (max-width: 575px) {
+  /* xs */
+  .xs-none {
+    display: none !important;
+  }
+
+  #attachments {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* sm */
+  .sm-none {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* md */
+  .md-none {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* lg */
+  .lg-none {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  /* xl */
+  .xl-none {
+    display: none !important;
+  }
+}
+
+i.custom-badge:after {
+  content: attr(data-count);
+  position: absolute;
+  background: rgba(0, 0, 255, 1);
+  height: 2rem;
+  top: 1rem;
+  right: 1.5rem;
+  width: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid blue;
+}
+
+.selector-default {
+  background-color: #f3f3f3;
+}
+
+.selector-dark-blue {
+  background-color: #0c3448;
+  color: #fff;
+}
+
+.lang-option {
+  background-color: #eaeaea;
+  font-weight: bold;
+  border-bottom: 5px solid #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.breadcrumb-item.active {
+  font-weight: bold;
+}
+
+footer.sticky-footer {
+  padding: 1rem 0 !important;
+}
+
+/* Disabled */
+#attachments {
+  visibility: hidden;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Login
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="jumbotron login-jumbotron">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <p class="logo">Decentralized
+                        Email
+                    </p>
+                </div>
+
+                <div class="col-md-6 text-align-right">
+                    <a class="header-btn" href="/">Home</a>
+                    <a class="header-btn" href="/register">Register</a>
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <div class="col-md-4">
+                    <br /><br /><br />
+                    <form id="signinForm" class="validatedForm color-white" action="">
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Password"><br />
+                            <input type='checkbox' id='check' />Show Password
+                        </div>
+
+                        <button class="form-control btn" type="submit"
+                            style="color:wheat; background-color: #306374">SignIn</button>
+                    </form>
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                    crossorigin="anonymous">
+
+                <!-- for jquery validation -->
+                <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                    crossorigin="anonymous"></script>
+
+
+                <script src="/js/home.js"></script>
+                <script src="/js/login.js"></script>
+                <link rel="stylesheet" type="text/css" href="/css/home.css">
+                <link rel="stylesheet" type="text/css" href="/css/login.css">
+</body>
+
+</html>

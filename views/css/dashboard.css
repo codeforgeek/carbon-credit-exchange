@@ -1,0 +1,149 @@
+.header {
+    background-image: linear-gradient(-90deg, rgb(139, 160, 184), white);
+}
+
+.left-container {
+    /* border:1px solid black; */
+    background-color: #f2f2f2;
+}
+
+.left-container li:hover {
+    background-color: rgb(196, 199, 212);
+    border-radius: 25px;
+}
+
+.left-container li {
+    font-weight: bolder;
+    list-style-type: none;
+    padding: 8px 16px;
+}
+
+.right-container {
+    /* border: 1px solid black; */
+}
+
+.container-box {
+    height: 91vh;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.date {
+    font-size: .8em;
+    float: right;
+    font-weight: normal;
+}
+
+.width-100 {
+    width: 100px;
+}
+
+.width-380 {
+    width: 380px;
+}
+
+.center-block {
+    margin: auto;
+    display: block;
+}
+
+.subject {
+    margin-left: 10px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.inbox-list {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    font-weight: bold;
+    list-style-type: none;
+    padding: 8px 16px;
+}
+
+textarea {
+    white-space: pre;
+}
+
+.inbox-list:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+a:hover {
+    color: white !important;
+    text-shadow: 0px 1px whitesmoke;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+/* media Query */
+
+/* @media only screen and (max-width: 823px) {
+    body {
+      background-color: lightblue;
+    }
+  } */
+
+/* code under testing */
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    /* z-index: 2; */
+    cursor: pointer;
+    z-index: 2;
+}
+
+.request-btn{
+margin-left: 20%;
+}
+
+@media only screen and (max-width: 823px) {
+    .left-container {
+        display: none;
+    }
+    .icon {
+        display: block !important;
+    }
+    .logo {
+        display: none;
+    }
+    .inbox-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        font-weight: bold;
+        list-style-type: none;
+        /* padding: 8px 16px; */
+    }
+    .request-btn{
+        margin-left: 25%;
+        }
+}
+
+.icon {
+    color: black;
+    font-weight: bold;
+    display: none;
+    padding-top: 10px;
+}
