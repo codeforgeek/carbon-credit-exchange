@@ -17,6 +17,7 @@
     "body-parser": "^1.18.3",
     "connect-redis": "^3.4.1",
     "cookie-parser": "^1.4.4",
+    "ethereumjs-wallet": "^0.6.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "ipfs-api": "^26.1.2",
