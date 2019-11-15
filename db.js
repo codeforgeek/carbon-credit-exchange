@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 const Identities = require('orbit-db-identity-provider');
 const ethWallet = require('ethereumjs-wallet');
+const fund = require('./transferfund');
 
 // load all dbs
 let filePath = './dbaddress.js';
@@ -169,16 +170,41 @@ async function login(data) {
         let userData = await getUserByEmail(data.email);
         if (bcrypt.compareSync(data.password, userData[0].password)) {
             // correct password
-            return {
-                "error": false,
-                "data": {
-                    "userId": userData[0]['_id'],
-                    "email": userData[0]['email'],
-                    "accountAddress": userData[0]['accountAddress'],
-                    "balance": userData[0]['balance'],
-                    "carbonCredit": userData[0]['carbonCredit']
-                },
-                "message": "user logged in successfully."
+            let balance = await fund.getBalance(userData[0].accountAddress);
+            console.log(balance);
+            console.log(userData[0].balance);
+            if(balance !== userData[0].balance) {
+                // do the update
+                let userInfo = userData[0];
+                userInfo.balance = balance;
+                let hash = await userDb.put(userInfo);
+                console.log(hash);
+                let userData2 = await getUserByEmail(data.email);
+                return {
+                    "error": false,
+                    "data": {
+                        "userId": userData2[0]['_id'],
+                        "email": userData2[0]['email'],
+                        "accountAddress": userData2[0]['accountAddress'],
+                        "role": userData2[0]['role'],
+                        "balance": userData2[0]['balance'],
+                        "carbonCredit": userData2[0]['carbonCredit']
+                    },
+                    "message": "user logged in successfully."
+                };
+            } else {
+                return {
+                    "error": false,
+                    "data": {
+                        "userId": userData[0]['_id'],
+                        "email": userData[0]['email'],
+                        "accountAddress": userData[0]['accountAddress'],
+                        "role": userData[0]['role'],
+                        "balance": userData[0]['balance'],
+                        "carbonCredit": userData[0]['carbonCredit']
+                    },
+                    "message": "user logged in successfully."
+                }
             }
         } else {
             return {
@@ -200,7 +226,7 @@ async function login(data) {
 
 async function getListing() {
     try {
-        let creditData = propertiesDb.query((doc) => doc);
+        let creditData = propertiesDb.query((doc) => doc.propertyData.leasedTo === null);
         return {
             "error": false,
             "data": creditData,
@@ -209,6 +235,105 @@ async function getListing() {
     }
     catch (e) {
         return {
+            "error": true,
+            "data": null,
+            "message": "failure"
+        };
+    }
+}
+
+async function createProperty(user, propertyData) {
+    try {
+        let id = uuid();
+        let data = {
+            _id: id,
+            userId: user.userId,
+            email: user.email,
+            propertyData: propertyData
+        };
+        let hash = await propertiesDb.put(data);
+        return {
+            "error": false,
+            "hash": hash            
+        };
+    } catch(e) {
+        return {
+            "error": true,
+            "data": null,
+            "message": "failure"
+        };
+    }
+}
+
+async function buyPropertyForCredit(user, recieverEmail, propertyId) {
+    try {
+        let propertyData = await getPropertyById(propertyId);
+        if(propertyData[0].propertyData.leasedTo !== null) {
+            return {
+                "error": true,
+                "data": null,
+                "message": "Property already rented/leased"
+            };
+        }
+        let senderInfo = await getUserByEmail(user.email);
+        let recieverData = await getUserByEmail(recieverEmail);
+        let amount = propertyData[0].propertyData.price;
+        console.log(amount);
+        let txData = await fund.transferFund({
+            address: senderInfo[0].accountAddress,
+            privateKey: senderInfo[0].privateKey
+        },
+        {
+            address: recieverData[0].accountAddress
+        }, amount);
+        console.log(txData);
+        let id = uuid();
+        let data = {
+            _id: id,
+            lenderEmail: user.email,
+            credit: propertyData[0].propertyData.credit,
+            txId: txData.id,
+            proof: txData.link,
+            propertyId: propertyId,
+            propertyData: propertyData
+        };
+        let hash = await realtimeListDb.put(data);
+        console.log(hash);
+        // add credit to the company account
+        let senderData = senderInfo[0];
+        console.log(senderData);
+        let recieverDataRevised = recieverData[0];
+        // increase balance
+        let senderBalance = senderInfo.balance;
+        let senderCredit = senderInfo.carbonCredit;
+        if(isNaN(senderBalance)) {
+            senderBalance = 0;
+        }
+        if(isNaN(senderCredit)) {
+            senderCredit = 0;
+        }
+        senderBalance -= parseFloat(propertyData[0].propertyData.price);
+        senderCredit += parseFloat(propertyData[0].propertyData.credit);
+        senderData.balance = senderBalance;
+        senderData.carbonCredit = senderCredit;
+        let hash2 = await userDb.put(senderData);
+        console.log(hash2);
+        // add balance to the farmer
+        recieverDataRevised.balance = parseFloat(recieverDataRevised.balance + propertyData[0].propertyData.price);
+        let hash3 = await userDb.put(recieverDataRevised);
+        console.log(hash3);
+        // update property data
+        propertyData[0].propertyData.leasedTo = senderInfo[0].email;
+        let hash4 = await propertiesDb.put(propertyData[0]);
+        console.log(hash);
+        return {
+            "error": false,
+            "data": data,
+            "message": "Success"
+        };
+    } catch(e) {
+        console.log(e);
+       return {
             "error": true,
             "data": null,
             "message": "failure"
@@ -276,6 +401,11 @@ async function getUserByEmail(email) {
     return data;
 }
 
+async function getPropertyById(id) {
+    let data = propertiesDb.query((doc) => doc.propertyData.id === id);
+    return data;
+}
+
 async function checkUserEmail(data) {
     try {
         let userData = await getUserByEmail(data.email);
@@ -313,5 +443,7 @@ module.exports = {
     getListing: getListing,
     getCreditData: getCreditData,
     getCompanyCredit: getCompanyCredit,
-    getMyListing: getMyListing
+    getMyListing: getMyListing,
+    createProperty: createProperty,
+    buyPropertyForCredit: buyPropertyForCredit
 };

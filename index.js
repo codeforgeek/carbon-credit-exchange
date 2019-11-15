@@ -119,7 +119,7 @@ router.post("/login", async (req, res) => {
   res.json({
     error: false,
     message: "User logged in.",
-    email: req.session.key.email
+    data: response.data    
   });
 });
 
@@ -158,6 +158,38 @@ router.get("/property/list", async (req, res) => {
     return res.json({ error: true, message: "Invalid session" });
   }
 });
+
+/**
+ * property creation
+ */
+
+ router.post('/property', async (req,res) => {
+  if (req.session.key && req.session.key.role === 'landowner') {
+    let response = await db.createProperty(req.session.key, req.body);
+    if (response.error) {
+      return res.json({ error: true, message: "failure" });
+    }
+    res.json({ error: false, message: "success", data: response.data });
+  } else {
+    return res.json({ error: true, message: "Invalid session" });
+  }
+ });
+
+ /**
+  * buy propery to get carbon credit
+  */
+
+  router.post('/property/buy', async(req,res) => {
+    if (req.session.key && req.session.key.role === 'company') {
+    let response = await db.buyPropertyForCredit(req.session.key, req.body.recieverEmail,req.body.propertyId);
+      if (response.error) {
+        return res.json({ error: true, message: "failure" });
+      }
+      res.json({ error: false, message: "success", data: response.data });
+    } else {
+      return res.json({ error: true, message: "Invalid session" });
+    }
+  });
 
 
 /**
