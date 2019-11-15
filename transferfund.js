@@ -1,4 +1,4 @@
-const Web3 = require("web3")
+const Web3 = require("web3");
 const EthereumTx = require('ethereumjs-tx').Transaction;
 const axios = require('axios');
 const ethNetwork = 'https://rinkeby.infura.io/v3/cdde516ec62c4706ba81e3ef8f265879';
@@ -58,4 +58,9 @@ async function getCurrentGasPrices() {
     return prices;
 }
 
-transferFund();
+transferFund({
+    address: '0x3bd2e500c697398e821650a561f103fbf2a4a55b',
+    privateKey: '0xa8138d83b4a1b1237ba09270d5a4f380052d72bce9e2d9292d9dbcbb3409e9df'
+}, {
+    address: '0xfe6f69c79910acf714d933df845052aa17386f31'
+},0.1);
