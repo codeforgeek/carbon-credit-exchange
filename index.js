@@ -4,6 +4,7 @@ const redis = require("redis");
 const session = require("express-session");
 const redisStore = require("connect-redis")(session);
 const cookieParser = require("cookie-parser");
+const cors = require('cors')
 const app = express();
 const client = redis.createClient();
 const router = express.Router();
@@ -14,6 +15,7 @@ const path = require("path");
 // app.engine('html', require('ejs').renderFile);
 
 // app.use(express.static(path.join(__dirname, 'views')));
+app.use(cors());
 app.use(express.static(__dirname + "/views/"));
 app.use(express.static(__dirname + "/views/js"));
 app.use(express.static(__dirname + "/views/css"));
@@ -181,7 +183,7 @@ router.get("/property/list", async (req, res) => {
 
   router.post('/property/buy', async(req,res) => {
     if (req.session.key && req.session.key.role === 'company') {
-    let response = await db.buyPropertyForCredit(req.session.key, req.body.recieverEmail,req.body.propertyId);
+    let response = await db.buyPropertyForCredit(req.session.key, req.body.propertyId);
       if (response.error) {
         return res.json({ error: true, message: "failure" });
       }
@@ -220,7 +222,7 @@ router.get("/public/credit", async (req, res) => {
   if (response.error) {
     return res.json({ error: true, message: "failure" });
   }
-  res.json({ error: false, message: "success" });
+  res.json({ error: false, data: response.data, message: "success" });
 });
 
 /**

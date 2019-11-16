@@ -265,7 +265,7 @@ async function createProperty(user, propertyData) {
     }
 }
 
-async function buyPropertyForCredit(user, recieverEmail, propertyId) {
+async function buyPropertyForCredit(user, propertyId) {
     try {
         let propertyData = await getPropertyById(propertyId);
         if(propertyData[0].propertyData.leasedTo !== null) {
@@ -276,7 +276,7 @@ async function buyPropertyForCredit(user, recieverEmail, propertyId) {
             };
         }
         let senderInfo = await getUserByEmail(user.email);
-        let recieverData = await getUserByEmail(recieverEmail);
+        let recieverData = await getUserByEmail(propertyData[0].email);
         let amount = propertyData[0].propertyData.price;
         console.log(amount);
         let txData = await fund.transferFund({
