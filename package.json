@@ -24,6 +24,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "ipfs-api": "^26.1.2",
+    "jsonwebtoken": "^8.5.1",
     "orbit-db": "^0.20.0",
     "orbit-db-identity-provider": "^0.1.1",
     "react-localization": "^1.0.13",
