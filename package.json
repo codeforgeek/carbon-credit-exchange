@@ -28,7 +28,7 @@
     "orbit-db": "^0.20.0",
     "orbit-db-identity-provider": "^0.1.1",
     "react-localization": "^1.0.13",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "uuid": "^3.3.2",
     "web3": "1.2.2",
     "websocket": "^1.0.30"
